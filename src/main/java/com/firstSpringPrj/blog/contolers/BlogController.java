@@ -19,12 +19,13 @@ public class BlogController {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    PostRepository postRepository;
+
     @GetMapping("/blog")
     public String blogMain(Model model){
-        List<Customer> customers = customerRepository.findAll();
-        List<Customer> customersLastName = customerRepository.findByLastName("Smith");
-        model.addAttribute("customers", customers);
-        model.addAttribute("lastNameSmith", customersLastName);
+        List<Post> posts = postRepository.findAll();
+        model.addAttribute("posts", posts);
         return "blog-main";
     }
 

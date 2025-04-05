@@ -3,8 +3,6 @@ package com.firstSpringPrj.blog.models;
 import org.springframework.data.annotation.Id;
 
 public class Post {
-    @Id
-    private long id;
     private String title,alows,full_text;
     private int views;
 
@@ -40,18 +38,15 @@ public class Post {
         this.views = views;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Post(String title, String alows, String full_text, int views) {
         this.title = title;
         this.alows = alows;
         this.full_text = full_text;
         this.views = views;
+    }
+
+    public Post() {
     }
 }
