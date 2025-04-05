@@ -7,7 +7,7 @@ public class Post {
     @Id
     public String id;
     public String title,anons,full_text;
-    private int views;
+    public int views;
 
     public String getTitle() {
         return title;
