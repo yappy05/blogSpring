@@ -2,6 +2,7 @@ package com.firstSpringPrj.blog.models;
 
 import org.springframework.data.annotation.Id;
 
+
 public class Post {
     @Id
     public String id;
@@ -42,11 +43,11 @@ public class Post {
 
 
 
-    public Post(String title, String anons, String full_text, int views) {
+    public Post(String title, String anons, String full_text) {
         this.title = title;
         this.anons = anons;
         this.full_text = full_text;
-        this.views = views;
+        this.views = 0;
     }
 
     public Post() {
