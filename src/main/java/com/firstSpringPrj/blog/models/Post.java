@@ -3,7 +3,9 @@ package com.firstSpringPrj.blog.models;
 import org.springframework.data.annotation.Id;
 
 public class Post {
-    private String title,alows,full_text;
+    @Id
+    public String id;
+    public String title,anons,full_text;
     private int views;
 
     public String getTitle() {
@@ -15,11 +17,11 @@ public class Post {
     }
 
     public String getAlows() {
-        return alows;
+        return anons;
     }
 
     public void setAlows(String alows) {
-        this.alows = alows;
+        this.anons = alows;
     }
 
     public String getFull_text() {
@@ -40,9 +42,9 @@ public class Post {
 
 
 
-    public Post(String title, String alows, String full_text, int views) {
+    public Post(String title, String anons, String full_text, int views) {
         this.title = title;
-        this.alows = alows;
+        this.anons = anons;
         this.full_text = full_text;
         this.views = views;
     }
