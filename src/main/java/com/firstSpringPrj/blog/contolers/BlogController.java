@@ -58,10 +58,20 @@ public class BlogController {
     @GetMapping("/blog/{id}/edit")
     public String blogEdit(@PathVariable(value = "id") String id, Model model){
         if (!postRepository.existsById(id)) return "redirect:/blog";
+        //код делает одно и тоже, просто по разному написан
+//        Optional<Post> post = postRepository.findById(id);
+//        ArrayList res = new ArrayList<>();
+//        post.ifPresent(res::add);
+//        model.addAttribute("post", res);
+//        return "blog-edit";
         Optional<Post> post = postRepository.findById(id);
         ArrayList res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", res);
+        if (post.isPresent()){
+            res.add(post.get());
+            model.addAttribute("post",res);
+            return "blog-edit";
+        }
+        model.addAttribute("post",res);
         return "blog-edit";
     }
 
